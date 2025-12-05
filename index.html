@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Workbench Server</title>
+    <link rel="icon" href="https://chenaaron.com/_next/static/media/SQL.f9f6e6ee.png" type="image/png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d1b2a; 
+            color: #00d8ff;       
+            font-family: "Courier New", monospace;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .terminal {
+            border: 2px solid #00d8ff;
+            padding: 30px 40px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 30px #00d8ff, 0 0 60px #00d8ff33;
+            border-radius: 10px;
+            background: rgba(13, 27, 42, 0.9); 
+            position: relative;
+        }
+
+        
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56; 
+            box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f; 
+        }
+
+        .terminal p {
+            margin: 0;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        
+        body::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #00d8ff22 0%, #0d1b2a 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .terminal * {
+            position: relative;
+            z-index: 1; 
+        }
+
+        
+        @media (max-width: 768px) {
+            .terminal {
+                padding: 20px 25px;
+            }
+            .terminal p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terminal {
+                padding: 15px 20px;
+            }
+            .terminal p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <p>$ SQL Server is up and accepting queries <span class="blink">█</span></p>
+</div>
+
+</body>
+</html>
