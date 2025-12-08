@@ -3,21 +3,23 @@ const path = require('path');
 const app = express();
 const port = 3000;
 const db_mysql = require("./config/database/mysql.js");
+const { router } = require('./routes/index.js');
+
+app.use(express.json());
+app.use("/api",router);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 })
 
-app.get('/testmysql', async(req, res) => {
+
+app.listen(port, async () => {
+  console.log(`Example app listening on port ${port}`);
   try {
-    // const [rows] = await db_mysql.query('SELECT NOW() AS currentTime;');
-    const rows = await db_mysql.query('SELECT * FROM demo_users;');
-    console.log(rows);
-    console.log('MySQL connected! Server time:', rows[0].currentTime);44  } catch (err) {
+    const [rows] = await db_mysql.query('SELECT NOW() AS currentTime;');
+    console.log('MySQL connected! Server time:', rows[0].currentTime); 44
+  } catch (err) {
+    res.send(err);
     console.error('MySQL connection failed:', err.message);
   }
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
 })
