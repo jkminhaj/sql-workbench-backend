@@ -3,8 +3,8 @@ import db_mysql from "../config/database/mysql.js";
 class QueryController {
     static async compileQueries(req, res) {
         try {
-            const { queries } = req.body;
-
+            const queries = req.body.queries;
+            // console.log("query :   ",queries)
             if (!queries || typeof queries !== "string") {
                 return res.status(400).json({
                     success: false,
