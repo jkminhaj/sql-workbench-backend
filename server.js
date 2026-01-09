@@ -24,7 +24,6 @@ app.listen(port, async () => {
     const [rows] = await db_mysql.query('SELECT NOW() AS currentTime;');
     console.log('MySQL connected! Server time:', rows[0].currentTime); 44
   } catch (err) {
-    res.send(err);
     console.error('MySQL connection failed:', err.message);
   }
 })
